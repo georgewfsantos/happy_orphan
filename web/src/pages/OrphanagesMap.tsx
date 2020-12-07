@@ -56,8 +56,7 @@ const OrphanagesMap: React.FC = () => {
       </aside>
 
       <Map
-      // center={[-17.803552, -50.915815]} Rio Verde
-      center={[-27.4457392,-48.3832063]}
+      center={[-17.803552, -50.915815]}
       zoom={17}
       style={{
         width:'100%',
