@@ -11,7 +11,7 @@ const SelectMapPosition : React.FC = () => {
   const navigation = useNavigation();
   const [position, setPosition] = useState({ latitude: 0, longitude: 0});
 
-  function handleSelectMapPosition(event: MapEvent) {
+  const  handleSelectMapPosition = (event: MapEvent) => {
     setPosition(event.nativeEvent.coordinate);
   }
 
@@ -21,23 +21,23 @@ const SelectMapPosition : React.FC = () => {
     <View style={styles.container}>
       <MapView 
         initialRegion={{
-          latitude: -27.2092052,
-          longitude: -49.6401092,
+          latitude: -17.8035469,
+          longitude: -50.9158097,
           latitudeDelta: 0.008,
           longitudeDelta: 0.008,
         }}
         onPress={handleSelectMapPosition}
         style={styles.mapStyle}
       >
-        { !!position.latitude && (
+        {position.latitude !== 0 && (
           <Marker 
-            icon={mapMarkerImg}
-            coordinate={position}
-          />
+          icon={mapMarkerImg}
+          coordinate={{latitude: position.latitude, longitude: position.longitude}}
+        />
         )}
       </MapView>
 
-      { !!position.latitude && (
+      { position.latitude !== 0 && (
         <RectButton style={styles.nextButton} onPress={() =>navigation.navigate('OrphanageInfo', { position })}>
           <Text style={styles.nextButtonText}>Próximo</Text>
         </RectButton>
