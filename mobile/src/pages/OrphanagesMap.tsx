@@ -145,4 +145,6 @@ const styles = StyleSheet.create({
 
 
 
-export default OrphanagesMap;
+export default OrphanagesMap; 
+
+
